@@ -1,0 +1,22 @@
+{
+  "name": "node-folder-structure",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DevMinhThu/Node-Folder-Structure.git"
+  },
+  "author": "M.Thư",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DevMinhThu/Node-Folder-Structure/issues"
+  },
+  "homepage": "https://github.com/DevMinhThu/Node-Folder-Structure#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
