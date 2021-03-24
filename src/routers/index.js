@@ -1,74 +1,48 @@
 const express = require("express");
 const router = express.Router();
 
+// controller
+const Auth = require("../app/controllers/auth");
+const Admin = require("../app/controllers/admin");
+const User = require("../app/controllers/user");
+const Categories = require("../app/controllers/category");
+const Product = require("../app/controllers/product");
+
 /**===========Authentication============= */
-router.get("/admin/login", (req, res) => {
-  res.send("Login");
-});
+router.get("/admin/login", Auth.login);
 
-router.get("/admin/logout", (req, res) => {
-  res.send("Logout");
-});
+// res data from method post in form of file auth.js
+router.post("/login", Auth.submitLogin);
 
-router.get("/admin/dashboard", (req, res) => {
-  res.send("Dashboard");
-});
+router.get("/admin/logout", Auth.logout);
+
+router.get("/admin/dashboard", Admin.dashboard);
 
 /**===========Users============= */
-router.get("/admin/users", (req, res) => {
-  res.send("User");
-});
+router.get("/admin/users", User.index);
 
-router.get("/admin/users/create", (req, res) => {
-  res.send("Create");
-});
+router.get("/admin/users/create", User.create);
 
-router.get("/admin/users/edit/:id", (req, res) => {
-  console.log(req.params);
-  res.send("Edit user by param id " + req.params.id);
-});
+router.get("/admin/users/edit/:id", User.edit);
 
-router.get("/admin/users/delete/:id", (req, res) => {
-  console.log(req.params);
-  res.send("Delete user by param id " + req.params.id);
-});
+router.get("/admin/users/delete/:id", User.delete);
 
 /**===========Categories============= */
-router.get("/admin/categories", (req, res) => {
-  res.send("Categories");
-});
+router.get("/admin/categories", Categories.index);
 
-router.get("/admin/categories/create", (req, res) => {
-  res.send("Create Categories");
-});
+router.get("/admin/categories/create", Categories.create);
 
-router.get("/admin/categories/edit/:id", (req, res) => {
-  console.log(req.params);
-  res.send("Edit category by param id " + req.params.id);
-});
+router.get("/admin/categories/edit/:id", Categories.edit);
 
-router.get("/admin/categories/delete/:id", (req, res) => {
-  console.log(req.params);
-  res.send("Delete category by param id " + req.params.id);
-});
+router.get("/admin/categories/delete/:id", Categories.delete);
 
 /**===========product============= */
-router.get("/admin/products", (req, res) => {
-  res.send("products");
-});
+router.get("/admin/products", Product.index);
 
-router.get("/admin/products/create", (req, res) => {
-  res.send("Create products");
-});
+router.get("/admin/products/create", Product.create);
 
-router.get("/admin/products/edit/:id", (req, res) => {
-  console.log(req.params);
-  res.send("Edit products by param id " + req.params.id);
-});
+router.get("/admin/products/edit/:id", Product.edit);
 
-router.get("/admin/products/delete/:id", (req, res) => {
-  console.log(req.params);
-  res.send("delete products by param id " + req.params.id);
-});
+router.get("/admin/products/delete/:id", Product.delete);
 
 module.exports = router;

@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/DevMinhThu/Node-Folder-Structure#readme",
   "dependencies": {
+    "config": "^3.3.6",
     "express": "^4.17.1"
   }
 }
