@@ -10,9 +10,8 @@ const Product = require("../app/controllers/product");
 
 /**===========Authentication============= */
 router.get("/admin/login", Auth.login);
-
 // res data from method post in form of file auth.js
-router.post("/login", Auth.submitLogin);
+router.post("/admin/login", Auth.postLogin);
 
 router.get("/admin/logout", Auth.logout);
 

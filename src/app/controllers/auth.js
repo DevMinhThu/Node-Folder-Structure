@@ -1,21 +1,22 @@
 const login = (req, res) => {
-  res.send(`
-   <form method="post" action="/login">
-    <input type="text" name="user" />
-    <input type="text" name="pass" />
-    <input type="submit" name="sbm" value="Login" />
-   </form>
-  `);
+  res.render("admin/login", { data: {} });
 };
 
-const submitLogin = (req, res) => {
-  const user = req.body.user;
+const postLogin = (req, res) => {
+  const user = req.body.mail;
   const pass = req.body.pass;
+  let err;
 
-  res.send(`
-    User: ${user} <br/>
-    Pass: ${pass}
-  `);
+  if (user === "" || pass === "") {
+    err = "Thông tin không được để trống!";
+  } else if (user === "vietpro.edu.vn@gmail.com" && pass === "123456") {
+    res.redirect("/admin/dashboard"); // điều hướng tới url khác
+  } else {
+    err = "Tài khoản không hợp lệ!";
+  }
+
+  // truyền data err sang cho view để hiển thị ra lỗi
+  res.render("admin/login", { data: { error: err } });
 };
 
 const logout = (req, res) => {
@@ -25,5 +26,5 @@ const logout = (req, res) => {
 module.exports = {
   login: login,
   logout: logout,
-  submitLogin: submitLogin,
+  postLogin: postLogin,
 };
