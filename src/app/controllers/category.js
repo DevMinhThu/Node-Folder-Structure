@@ -1,13 +1,13 @@
 const index = (req, res) => {
-  res.send("Index categories");
+  res.render("admin/category");
 };
 
 const create = (req, res) => {
-  res.send("create categories");
+  res.render("admin/add_category");
 };
 
 const edit = (req, res) => {
-  res.send("edit categories");
+  res.render("admin/edit_category");
 };
 
 const deleteCategory = (req, res) => {

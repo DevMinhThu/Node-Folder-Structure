@@ -60,7 +60,7 @@
             </div>
         </form>
         <ul class="nav menu">
-            <li class="active"><a href="index.html"><svg class="glyph stroked dashboard-dial">
+            <li><a href="index.html"><svg class="glyph stroked dashboard-dial">
                         <use xlink:href="#stroked-dashboard-dial"></use>
                     </svg> Dashboard</a></li>
             <li><a href="thanhvien.html"><svg class="glyph stroked male user ">
@@ -69,7 +69,7 @@
             <li><a href="category.html"><svg class="glyph stroked open folder">
                         <use xlink:href="#stroked-open-folder" />
                     </svg>Quản lý danh mục</a></li>
-            <li><a href="product.html"><svg class="glyph stroked bag">
+            <li class="active"><a href="product.html"><svg class="glyph stroked bag">
                         <use xlink:href="#stroked-bag"></use>
                     </svg>Quản lý sản phẩm</a></li>
             <li><a href="comment.html"><svg class="glyph stroked two messages">
@@ -92,20 +92,20 @@
                 <li><a href="#"><svg class="glyph stroked home">
                             <use xlink:href="#stroked-home"></use>
                         </svg></a></li>
-                <li class="active">Danh sách thành viên</li>
+                <li class="active">Danh sách sản phẩm</li>
             </ol>
         </div>
         <!--/.row-->
 
         <div class="row">
             <div class="col-lg-12">
-                <h1 class="page-header">Danh sách thành viên</h1>
+                <h1 class="page-header">Danh sách sản phẩm</h1>
             </div>
         </div>
         <!--/.row-->
         <div id="toolbar" class="btn-group">
-            <a href="thanhvien-add.html" class="btn btn-success">
-                <i class="glyphicon glyphicon-plus"></i> Thêm thành viên
+            <a href="product-add.html" class="btn btn-success">
+                <i class="glyphicon glyphicon-plus"></i> Thêm sản phẩm
             </a>
         </div>
         <div class="row">
@@ -117,34 +117,42 @@
                             <thead>
                                 <tr>
                                     <th data-field="id" data-sortable="true">ID</th>
-                                    <th data-field="name" data-sortable="true">Họ & Tên</th>
-                                    <th data-field="price" data-sortable="true">Email</th>
-                                    <th>Quyền</th>
+                                    <th data-field="name" data-sortable="true">Tên sản phẩm</th>
+                                    <th data-field="price" data-sortable="true">Giá</th>
+                                    <th>Ảnh sản phẩm</th>
+                                    <th>Trạng thái</th>
+                                    <th>Danh mục</th>
                                     <th>Hành động</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr>
                                     <td style="">1</td>
-                                    <td style="">Admin</td>
-                                    <td style="">admin@gmail.com</td>
-                                    <td><span class="label label-danger">Admin</span></td>
+                                    <td style="">Sản phẩm số 1</td>
+                                    <td style="">18.500.000 vnd</td>
+                                    <td style="text-align: center"><img width="130" height="180"
+                                            src="img/download.jpeg" /></td>
+                                    <td><span class="label label-success">Còn hàng</span></td>
+                                    <td>Danh mục số 1</td>
                                     <td class="form-group">
-                                        <a href="thanhvien-edit.html" class="btn btn-primary"><i
+                                        <a href="product-edit.html" class="btn btn-primary"><i
                                                 class="glyphicon glyphicon-pencil"></i></a>
-                                        <a href="/" class="btn btn-danger"><i
+                                        <a href="product-edit.html" class="btn btn-danger"><i
                                                 class="glyphicon glyphicon-remove"></i></a>
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td style="">2</td>
-                                    <td style="">Nguyễn Văn A</td>
-                                    <td style="">nguyenvana@gmail.com</td>
-                                    <td><span class="label label-warning">Member</span></td>
+                                    <td style="">1</td>
+                                    <td style="">Sản phẩm số 2</td>
+                                    <td style="">18.500.000 vnd</td>
+                                    <td style="text-align: center"><img width="130" height="180"
+                                            src="img/download.jpeg" /></td>
+                                    <td><span class="label label-danger">Hết hàng</span></td>
+                                    <td>Danh mục số 1</td>
                                     <td class="form-group">
-                                        <a href="thanhvien-edit.html" class="btn btn-primary"><i
+                                        <a href="product-edit.html" class="btn btn-primary"><i
                                                 class="glyphicon glyphicon-pencil"></i></a>
-                                        <a href="/" class="btn btn-danger"><i
+                                        <a href="product-edit.html" class="btn btn-danger"><i
                                                 class="glyphicon glyphicon-remove"></i></a>
                                     </td>
                                 </tr>

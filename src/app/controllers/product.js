@@ -1,14 +1,14 @@
 const index = (req, res) => {
-  res.send("Index product");
+  res.render("admin/product");
 };
 
 const create = (req, res) => {
-  res.send("create product");
+  res.render("admin/add_product");
 };
 
 const edit = (req, res) => {
   console.log(req.params);
-  res.send("Edit product.");
+  res.render("admin/edit_product");
 };
 
 const deleteProduct = (req, res) => {

@@ -1,13 +1,13 @@
 const index = (req, res) => {
-  res.send("Index user");
+  res.render("admin/user");
 };
 
 const create = (req, res) => {
-  res.send("create user");
+  res.render("admin/add_user");
 };
 
 const edit = (req, res) => {
-  res.send("edit user");
+  res.render("admin/edit_user");
 };
 
 const deleteUser = (req, res) => {

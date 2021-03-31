@@ -1,5 +1,5 @@
 const dashboard = (req, res) => {
-  res.send("Dashboard");
+  res.render("admin/admin");
 };
 
 module.exports = {
