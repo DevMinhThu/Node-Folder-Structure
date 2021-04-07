@@ -7,6 +7,10 @@ const Admin = require("../app/controllers/admin");
 const User = require("../app/controllers/user");
 const Categories = require("../app/controllers/category");
 const Product = require("../app/controllers/product");
+const Test = require("../app/controllers/test");
+
+// === test ===
+router.get("/test", Test.test);
 
 /**===========Authentication============= */
 router.get("/admin/login", Auth.login);
