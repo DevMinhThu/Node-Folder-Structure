@@ -3,11 +3,11 @@ const index = (req, res) => {
 };
 
 const create = (req, res) => {
-  res.render("admin/add_category");
+  res.render("admin/category/add_category");
 };
 
 const edit = (req, res) => {
-  res.render("admin/edit_category");
+  res.render("admin/category/edit_category");
 };
 
 const deleteCategory = (req, res) => {

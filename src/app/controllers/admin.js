@@ -1,5 +1,5 @@
 const dashboard = (req, res) => {
-  res.render("admin/admin");
+  res.render("admin/index");
 };
 
 module.exports = {

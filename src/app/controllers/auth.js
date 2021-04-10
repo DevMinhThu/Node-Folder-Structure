@@ -1,3 +1,6 @@
+// import model user vao controller auth
+const UserModel = require("../models/user");
+
 const login = (req, res) => {
   /**
    * 2 params:
@@ -7,14 +10,22 @@ const login = (req, res) => {
   res.render("admin/login", { data: {} });
 };
 
-const postLogin = (req, res) => {
-  const user = req.body.mail;
+// su dung async await xu ly dong bo
+const postLogin = async (req, res) => {
+  const mail = req.body.mail;
   const pass = req.body.pass;
   let err;
 
+  /**
+   * email,password: là tên 2 trường trong collection user
+   * lay data tu UserModel va luu vao bien user
+   */
+  const user = await UserModel.find({ email: mail, password: pass });
+  // console.log(user);
+
   if (user === "" || pass === "") {
     err = "Information cannot be empty!";
-  } else if (user === "vietpro.edu.vn@gmail.com" && pass === "123456") {
+  } else if (user.length > 0) {
     res.redirect("/admin/dashboard"); // điều hướng tới url khác
   } else {
     err = "This account is Invalid!";

@@ -3,12 +3,12 @@ const index = (req, res) => {
 };
 
 const create = (req, res) => {
-  res.render("admin/add_product");
+  res.render("admin/product/add_product");
 };
 
 const edit = (req, res) => {
   console.log(req.params);
-  res.render("admin/edit_product");
+  res.render("admin/product/edit_product");
 };
 
 const deleteProduct = (req, res) => {
