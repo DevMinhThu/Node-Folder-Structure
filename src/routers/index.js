@@ -19,7 +19,7 @@ router.post("/admin/login", Auth.postLogin);
 
 router.get("/admin/logout", Auth.logout);
 
-router.get("/admin/dashboard", Admin.dashboard);
+router.get("/admin", Admin.dashboard);
 
 /**===========Users============= */
 router.get("/admin/users", User.index);

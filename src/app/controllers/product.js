@@ -1,5 +1,10 @@
-const index = (req, res) => {
-  res.render("admin/product");
+const ProductModel = require("../models/product");
+
+const index = async (req, res) => {
+  const products = await ProductModel.find().populate({ path: "cat_id" });
+  // console.log(products);
+
+  res.render("admin/product", { products: products });
 };
 
 const create = (req, res) => {

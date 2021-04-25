@@ -1,7 +1,7 @@
-// Bước 1: gọi file kết nối tới mongoose, phải có () để có thể sử dụng dược đối tượng mongoose
+// Bước 1: gọi file kết nối tới mongodb, phải có () để thực thi hàm và  lấy được giá trị của return là đối tượng mongoose
 const mongoose = require("../../common/database")();
 
-// Bước 2: sử dụng schema để mô tả collection muốn ánh xạ
+// Bước 2: sử dụng schema để mô tả collection user
 const userSchema = mongoose.Schema({
   full_name: {
     type: String,
@@ -29,7 +29,11 @@ const userSchema = mongoose.Schema({
   },
 });
 
-// Bước 3: Chuyển lớp user schema thành model
+// Bước 3: Biến lớp user schema thành Model
+// có 3 tham số:
+// tham số thứ 1: là bí danh của user khi được mô tả sang dạng model (đặt tên gì cũng được)
+// tham số thứ 2: là đối tượng schema mới được khởi tạo
+// tham số thứ 3: là tến collection mà schema quản lý (ở đây là collection user)
 const UserModel = mongoose.model("userModel", userSchema, "users");
 
 module.exports = UserModel;

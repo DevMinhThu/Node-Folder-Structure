@@ -26,7 +26,7 @@ const postLogin = async (req, res) => {
   if (user === "" || pass === "") {
     err = "Information cannot be empty!";
   } else if (user.length > 0) {
-    res.redirect("/admin/dashboard"); // điều hướng tới url khác
+    res.redirect("/admin"); // điều hướng tới url khác
   } else {
     err = "This account is Invalid!";
   }

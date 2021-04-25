@@ -21,7 +21,6 @@ const categorySchema = new mongoose.Schema(
       default: null,
     },
   },
-  // auto sinh ra thời gian tạo và cập nhật
   { timestamps: true }
 );
 

@@ -1,5 +1,10 @@
-const index = (req, res) => {
-  res.render("admin/user");
+const UserModel = require("../models/user");
+
+const index = async (req, res) => {
+  const users = await UserModel.find();
+  // console.log(users);
+
+  res.render("admin/user", { users: users });
 };
 
 const create = (req, res) => {
