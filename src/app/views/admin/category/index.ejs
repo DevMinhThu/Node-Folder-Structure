@@ -51,7 +51,7 @@
 											<%for(x in categories){%>
 												<tr>
 													<td style="">
-														<%= id++ %>
+														<%= skip + id++ %>
 													</td>
 													<td style="">
 														<%=categories[x].title%>
@@ -70,11 +70,30 @@
 							<div class="panel-footer">
 								<nav aria-label="Page navigation example">
 									<ul class="pagination">
-										<li class="page-item"><a class="page-link" href="#">&laquo;</a></li>
-										<li class="page-item"><a class="page-link" href="#">1</a></li>
-										<li class="page-item"><a class="page-link" href="#">2</a></li>
-										<li class="page-item"><a class="page-link" href="#">3</a></li>
-										<li class="page-item"><a class="page-link" href="#">&raquo;</a></li>
+										<%if(page>1){%>
+											<li class="page-item"><a class="page-link"
+													href="/admin/categories/?page=<%=page-1%>">&laquo;</a></li>
+											<%}%>
+												<%for(x in pages){%>
+													<%if(pages[x]!=='...'){%>
+														<li class="page-item <%=pages[x]===page ? 'active':''%>"><a
+																class="page-link"
+																href="/admin/categories/?page=<%=pages[x]%>">
+																<%=pages[x]%>
+															</a></li>
+														<%}else{%>
+															<li class="page-item"><a class="page-link"
+																	href="/admin/categories/?page=<%=pages[x]%>">
+																	<!--/ trong href la đẩy tham số trang đang chọn lên url-->
+																	<%=pages[x]%>
+																</a></li>
+															<%}%>
+																<%}%>
+																	<%if(page<totalPage){%>
+																		<li class="page-item"><a class="page-link"
+																				href="/admin/categories/?page=<%=page+1%>">&raquo;</a>
+																		</li>
+																		<%}%>
 									</ul>
 								</nav>
 							</div>
