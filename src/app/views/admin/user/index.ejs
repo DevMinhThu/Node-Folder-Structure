@@ -29,7 +29,7 @@
                 </div>
                 <!--/.row-->
                 <div id="toolbar" class="btn-group">
-                    <a href="thanhvien-add.html" class="btn btn-success">
+                    <a href="/admin/users/create" class="btn btn-success">
                         <i class="glyphicon glyphicon-plus"></i> Thêm thành viên
                     </a>
                 </div>
@@ -49,38 +49,67 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-
-                                        <%for(x in users){%>
-                                            <tr>
-                                                <td style="">1</td>
-                                                <td style="">
-                                                    <%=users[x].full_name%>
-                                                </td>
-                                                <td style="">
-                                                    <%=users[x].email%>
-                                                </td>
-                                                <td><span class="label label-danger">
-                                                        <%=users[x].role%>
-                                                    </span></td>
-                                                <td class="form-group">
-                                                    <a href="thanhvien-edit.html" class="btn btn-primary"><i
-                                                            class="glyphicon glyphicon-pencil"></i></a>
-                                                    <a href="/" class="btn btn-danger"><i
-                                                            class="glyphicon glyphicon-remove"></i></a>
-                                                </td>
-                                            </tr>
-                                            <%}%>
+                                        <% let id=1 %>
+                                            <%for(x in users){%>
+                                                <tr>
+                                                    <td style="">
+                                                        <%= skip + id++%>
+                                                    </td>
+                                                    <td style="">
+                                                        <%=users[x].full_name%>
+                                                    </td>
+                                                    <td style="">
+                                                        <%=users[x].email%>
+                                                    </td>
+                                                    <%if(users[x].role==='admin'){%>
+                                                        <td><span class="label label-success">
+                                                                <%=users[x].role%>
+                                                            </span></td>
+                                                        <%}else{%>
+                                                            <td><span class="label label-danger">
+                                                                    <%=users[x].role%>
+                                                                </span></td>
+                                                            <%}%>
+                                                                <td class="form-group">
+                                                                    <a href="thanhvien-edit.html"
+                                                                        class="btn btn-primary"><i
+                                                                            class="glyphicon glyphicon-pencil"></i></a>
+                                                                    <a href="/" class="btn btn-danger"><i
+                                                                            class="glyphicon glyphicon-remove"></i></a>
+                                                                </td>
+                                                </tr>
+                                                <%}%>
                                     </tbody>
                                 </table>
                             </div>
                             <div class="panel-footer">
                                 <nav aria-label="Page navigation example">
                                     <ul class="pagination">
-                                        <li class="page-item"><a class="page-link" href="#">&laquo;</a></li>
-                                        <li class="page-item"><a class="page-link" href="#">1</a></li>
-                                        <li class="page-item"><a class="page-link" href="#">2</a></li>
-                                        <li class="page-item"><a class="page-link" href="#">3</a></li>
-                                        <li class="page-item"><a class="page-link" href="#">&raquo;</a></li>
+                                        <!--/ nếu trang đang chọn mà > 1 thì mới hiển thị dấu back-->
+                                        <%if(page>1){%>
+                                            <li class="page-item"><a class="page-link"
+                                                    href="/admin/users/?page=<%=page-1%>">&laquo;</a></li>
+                                            <%}%>
+                                                <%for(x in pages){%>
+                                                    <%if(pages[x]!=='...'){%>
+                                                        <li class="page-item <%=pages[x]===page ? 'active':''%>"><a
+                                                                class="page-link"
+                                                                href="/admin/users/?page=<%=pages[x]%>">
+                                                                <%=pages[x]%>
+                                                            </a></li>
+                                                        <%}else{%>
+                                                            <li class="page-item"><a class="page-link"
+                                                                    href="/admin/users/?page=<%=pages[x]%>">
+                                                                    <!--/ trong href la đẩy tham số trang đang chọn lên url-->
+                                                                    <%=pages[x]%>
+                                                                </a></li>
+                                                            <%}%>
+                                                                <%}%>
+                                                                    <%if(page<totalPage){%>
+                                                                        <li class="page-item"><a class="page-link"
+                                                                                href="/admin/users/?page=<%=page+1%>">&raquo;</a>
+                                                                        </li>
+                                                                        <%}%>
                                     </ul>
                                 </nav>
                             </div>
