@@ -1,8 +1,8 @@
 const mongoose = require("mongoose");
 
-// connect voi database vp_shop_project_name
+// connect voi database vietpro_mongodb
 module.exports = () => {
-  mongoose.connect("mongodb://localhost/vp_shop_project_name", {
+  mongoose.connect("mongodb://localhost/vietpro_mongodb", {
     useNewUrlParser: true,
     useUnifiedTopology: true,
     useFindAndModify: false,

@@ -9,6 +9,9 @@ const Categories = require("../app/controllers/category");
 const Product = require("../app/controllers/product");
 const Test = require("../app/controllers/test");
 
+// middleware
+const uploadMiddleware = require("../app/middlewares/upload");
+
 // === test ===
 router.get("/test", Test.test);
 
@@ -43,6 +46,11 @@ router.get("/admin/categories/delete/:id", Categories.delete);
 router.get("/admin/products", Product.index);
 
 router.get("/admin/products/create", Product.create);
+router.post(
+  "/admin/products/store",
+  uploadMiddleware.single("thumbnail"), // single: upload 1 file
+  Product.store
+);
 
 router.get("/admin/products/edit/:id", Product.edit);
 
