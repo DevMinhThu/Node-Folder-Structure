@@ -1,6 +1,7 @@
 const express = require("express");
 const handlerRouter = require("../routers");
 const config = require("config");
+const session = require("express-session");
 
 // create app from express
 const app = express();
@@ -15,6 +16,17 @@ app.use("/static", express.static(config.get("app").static_folder));
 // read type data in form: 2 type text - json
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+
+// config session
+app.set("trust proxy", 1); // trust first proxy
+app.use(
+    session({
+        secret: config.get("app").session_key,
+        resave: false,
+        saveUninitialized: true,
+        cookie: { secure: config.get("app").session_secure },
+    })
+);
 
 app.use(handlerRouter);
 
